@@ -1,0 +1,7 @@
+.banner {
+  background: rgba(0, 0, 0, 0.5)
+    url("https://images.pexels.com/photos/694740/pexels-photo-694740.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  height: 85vh;
+  background-size: cover;
+  background-blend-mode: darken;
+}

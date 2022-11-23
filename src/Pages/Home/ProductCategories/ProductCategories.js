@@ -15,11 +15,11 @@ const ProductCategories = () => {
     return (
       <div>
         <h1 className="text-3xl font-semibold mt-10">Book's Categories</h1>
-        <div className="grid lg:grid-cols-3 lg:gap-8 my-7">
+        <div className="grid lg:grid-cols-3 lg:gap-8 mt-2 mb-7">
           {categories.map((category) => (
             <Link
               to={`/category/${category.category_id}`}
-              className=" p-5 my-4 bg-gradient-to-r from-sky-200 to-indigo-200 shadow-2xl rounded-lg text-center"
+              className=" p-5 my-4  bg-gradient-to-r from-sky-200 to-indigo-200 hover:from-pink-500 hover:to-yellow-500 hover:text-white   shadow-2xl rounded-lg text-center"
               key={category._id}
             >
               <img className="w-1/2 m-auto" src={category.image} alt="" />

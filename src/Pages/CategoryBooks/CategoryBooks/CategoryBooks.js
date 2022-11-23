@@ -4,13 +4,15 @@ import BookCard from '../BookCard/BookCard';
 
 const CategoryBooks = () => {
     const books = useLoaderData();
-    console.log(books);
+
     return (
-        <div>
-            {
-                books.map(book => <BookCard key={book._id}></BookCard>)
-            }
+      <div>
+        <div className="grid lg:grid-cols-3 gap-8">
+          {books.map((book) => (
+            <BookCard key={book._id} book={book}></BookCard>
+          ))}
         </div>
+      </div>
     );
 };
 

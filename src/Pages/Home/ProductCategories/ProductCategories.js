@@ -19,7 +19,7 @@ const ProductCategories = () => {
           {categories.map((category) => (
             <Link
               to={`/category/${category.category_id}`}
-              className=" p-5 bg-gradient-to-r from-sky-200 to-indigo-200 shadow-2xl rounded-lg text-center"
+              className=" p-5 my-4 bg-gradient-to-r from-sky-200 to-indigo-200 shadow-2xl rounded-lg text-center"
               key={category._id}
             >
               <img className="w-1/2 m-auto" src={category.image} alt="" />

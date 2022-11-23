@@ -1,0 +1,17 @@
+[
+  {
+    "category_id": "01",
+    "name": "Islamic",
+    "image": "https://ibb.co/r6MrPVs"
+  },
+  {
+    "category_id": "02",
+    "name": "Biography",
+    "image": "https://ibb.co/JtG3pXC"
+  },
+  {
+    "category_id": "02",
+    "name": "Engineering",
+    "image": "https://ibb.co/cwbV3W7"
+  }
+]

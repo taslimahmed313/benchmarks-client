@@ -1,0 +1,74 @@
+[
+  {
+    "category_id": "01",
+    "name": "The Productive Muslim",
+    "img": "https://m.media-amazon.com/images/I/71TUcdUSIdL.jpg",
+    "location": "Uttara, Dhaka",
+    "resalePrice": 59,
+    "originalPrice": 120,
+    "usingTime": "6 Month",
+    "sellerName": "Jabed Mosarraf",
+    "postedTime": "25 Nov 2022",
+    "category_name": "Islamic"
+  },
+  {
+    "category_id": "01",
+    "name": "Revive Your Heart",
+    "img": "https://3.bp.blogspot.com/-jNikWBfmWZ4/WN1kUKtLSzI/AAAAAAAAAzs/uPlZ3QS_Lw4Er9hrmOmBP996mRtaMSQfgCLcB/s1600/IMG_4670.JPG",
+    "location": "Hatirjil, Dhaka",
+    "resalePrice": 49,
+    "originalPrice": 100,
+    "usingTime": "3 Month",
+    "sellerName": "Murtoza Boshir",
+    "postedTime": "25 Nov 2022",
+    "category_name": "Islamic"
+  },
+  {
+    "category_id": "02",
+    "name": "এপিটাফ",
+    "img": "https://wafilife-media.wafilife.com/uploads/2020/02/67402237_423190301738278_790300542541758464_n.jpg",
+    "location": "Ganginapar, Mymensingh",
+    "resalePrice": 60,
+    "originalPrice": 140,
+    "usingTime": "4 Month",
+    "sellerName": "Riyazul Alam",
+    "postedTime": "25 Nov 2022",
+    "category_name": "Biography"
+  },
+  {
+    "category_id": "02",
+    "name": "Wings Of Fire",
+    "img": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1588286863l/634583._SY475_.jpg",
+    "location": "Biyanibazar, Shylet",
+    "resalePrice": 40,
+    "originalPrice": 100,
+    "usingTime": "7 Month",
+    "sellerName": "Riyadus Salehin",
+    "postedTime": "25 Nov 2022",
+    "category_name": "Biography"
+  },
+  {
+    "category_id": "03",
+    "name": "Fundamental of Mathematics",
+    "img": "https://m.media-amazon.com/images/I/81gMxsbIurL.jpg",
+    "location": "Kristopur, Mymensingh",
+    "resalePrice": 50,
+    "originalPrice": 110,
+    "usingTime": "4 Month",
+    "sellerName": "Rashed Mirza",
+    "postedTime": "25 Nov 2022",
+    "category_name": "Engineering"
+  },
+  {
+    "category_id": "03",
+    "name": "Fundamental of Engineering",
+    "img": "https://cdn.shopify.com/s/files/1/0554/9031/4427/products/SPPL_71_Front_480x480.jpg?v=1619495169",
+    "location": "Fulbariya, Khulna",
+    "resalePrice": 45,
+    "originalPrice": 105,
+    "usingTime": "9 Month",
+    "sellerName": "Abdur Rahim",
+    "postedTime": "25 Nov 2022",
+    "category_name": "Engineering"
+  }
+]

@@ -14,12 +14,11 @@ const Login = () => {
   const [loginError, setLoginError] = useState("");
   const location = useLocation();
 
-  const {signIn} = useContext(AuthContext);
+  const { signIn, googleLogin } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const from = location.state?.from?.pathname || "/";
 
-  
 
   const handleLogin = (data) => {
     signIn(data.email, data.password)
@@ -31,6 +30,15 @@ const Login = () => {
     })
     .catch(e => console.log(e))
   };
+
+  const handleGoogleLogin = () =>{
+    googleLogin()
+    .then(result => {
+      const user = result.user;
+      console.log(user)
+    })
+    .catch(e => console.log(e))
+  }
 
   return (
     <div className="h-[600px] flex justify-center items-center">
@@ -95,7 +103,10 @@ const Login = () => {
           </Link>
         </p>
         <div className="divider">OR</div>
-        <button className="btn w-full font-serif text-md text-white font-semibold border-none bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500">
+        <button
+          onClick={handleGoogleLogin}
+          className="btn w-full font-serif text-md text-white font-semibold border-none bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500"
+        >
           <FaGoogle className="text-xl text-white mr-2"></FaGoogle> CONTINUE
           WITH GOOGLE
         </button>

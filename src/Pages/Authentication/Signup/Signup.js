@@ -21,13 +21,34 @@ const SignUp = () => {
     createUser(data.email, data.password)
     .then(result =>{
       const user = result.user;
+      
       const profile = {displayName: data.name};
-      updateUser(profile);
+      updateUser(profile)
+      .then(() => {
+        saveUserData(data.name, data.email, data.role)
+        toast.success("Sign Up and User Data Stored Successfully");
+      })
+      .catch(e => console.log(e));
       console.log(user)
-      toast.success("Sign Up Successfully")
+      
     })
     .catch(e => console.log(e));
   }
+
+   const saveUserData = (name, email, role) => {
+     const user = { name, email, role };
+     fetch("http://localhost:5000/users", {
+       method: "POST",
+       headers: {
+         "content-type": "application/json",
+       },
+       body: JSON.stringify(user),
+     })
+       .then((res) => res.json())
+       .then((data) => {
+         console.log(data);
+       });
+   };
 
   
 
@@ -61,7 +82,7 @@ const SignUp = () => {
             </label>
             <select
               className="select select-bordered w-full max-w-xs"
-              {...register("account", {
+              {...register("role", {
                 required: "Account Must be Select",
               })}
             >

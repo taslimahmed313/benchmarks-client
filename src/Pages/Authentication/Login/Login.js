@@ -79,7 +79,7 @@ const Login = () => {
         </form>
         <p className=" font-medium">
           New to Doctors Portal?{" "}
-          <Link className=" text-white font-semibold" to="/signup">
+          <Link className=" text-white font-semibold underline" to="/signup">
             Create new Account
           </Link>
         </p>

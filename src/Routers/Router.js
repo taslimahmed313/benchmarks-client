@@ -5,9 +5,14 @@ import Login from "../Pages/Authentication/Login/Login";
 import SignUp from "../Pages/Authentication/Signup/Signup";
 import CategoryBooks from "../Pages/CategoryBooks/CategoryBooks/CategoryBooks";
 import AddAProduct from "../Pages/Dashboard/AddAProduct/AddAProduct";
+import AllBuyers from "../Pages/Dashboard/AllBuyers/AllBuyers";
+import AllSellers from "../Pages/Dashboard/AllSellers/AllSellers";
 import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
+import MyOrders from "../Pages/Dashboard/MyOrders/MyOrders";
 import MyProducts from "../Pages/Dashboard/MyProducts/MyProducts";
 import Home from "../Pages/Home/Home/Home";
+import AdminRouter from "./AdminRouter/AdminRouter";
+import BuyerRouter from "./BuyerRouter/BuyerRouter";
 import PrivateRoute from "./PrivateRouter/PrivateRouter";
 import SellerRouter from "./SellerRouter/SellerRouter";
 
@@ -53,13 +58,45 @@ export const router = createBrowserRouter([
         element: <Dashboard></Dashboard>,
       },
       {
+        path: "/dashboard/buyer/myOrders",
+        element: (
+          <BuyerRouter>
+            <MyOrders></MyOrders>
+          </BuyerRouter>
+        ),
+      },
+      {
         path: "/dashboard/seller/addAProduct",
-        element: <SellerRouter><AddAProduct></AddAProduct></SellerRouter>
+        element: (
+          <SellerRouter>
+            <AddAProduct></AddAProduct>
+          </SellerRouter>
+        ),
       },
       {
         path: "/dashboard/seller/myProducts",
-        element: <SellerRouter><MyProducts></MyProducts></SellerRouter>
-      }
+        element: (
+          <SellerRouter>
+            <MyProducts></MyProducts>
+          </SellerRouter>
+        ),
+      },
+      {
+        path: "/dashboard/admin/allBuyers",
+        element: (
+          <AdminRouter>
+            <AllBuyers></AllBuyers>
+          </AdminRouter>
+        ),
+      },
+      {
+        path: "/dashboard/admin/allSellers",
+        element: (
+          <AdminRouter>
+            <AllSellers></AllSellers>
+          </AdminRouter>
+        ),
+      },
     ],
   },
 ]);

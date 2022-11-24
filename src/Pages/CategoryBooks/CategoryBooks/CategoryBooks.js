@@ -1,18 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import BookCard from '../BookCard/BookCard';
 import BookingModal from '../BookingModal/BookingModal';
 
 const CategoryBooks = () => {
     const books = useLoaderData();
+    const [bookingData, setBookingData] = useState(null);
+    
 
     return (
       <div>
         <div className="grid lg:grid-cols-3 gap-8">
           {books.map((book) => (
-            <BookCard key={book._id} book={book}></BookCard>
+            <>
+              <BookCard
+                key={book._id}
+                setBookingData={setBookingData}
+                book={book}
+              ></BookCard>
+            </>
           ))}
-          <BookingModal></BookingModal>
+          {bookingData && (
+            <BookingModal
+              bookingData={bookingData}
+              setBookingData={setBookingData}
+            ></BookingModal>
+          )}
         </div>
       </div>
     );

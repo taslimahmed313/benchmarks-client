@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../Contexts/AuthProvider";
 
 const SignUp = () => {
   const {
@@ -9,11 +11,22 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
   const [signUpError, setSignUPError] = useState("");
+
+  const { createUser, updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  
 
 
   const handleSignUp = data =>{
-    console.log(data)
+    createUser(data.email, data.password)
+    .then(result =>{
+      const user = result.user;
+      const profile = {displayName: data.name};
+      updateUser(profile);
+      console.log(user)
+      toast.success("Sign Up Successfully")
+    })
+    .catch(e => console.log(e));
   }
 
   

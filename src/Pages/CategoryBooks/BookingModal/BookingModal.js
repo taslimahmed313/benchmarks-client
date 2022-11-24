@@ -1,6 +1,13 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
 
 const BookingModal = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
     return (
       <div>
         <input type="checkbox" id="booking-modal" className="modal-toggle" />

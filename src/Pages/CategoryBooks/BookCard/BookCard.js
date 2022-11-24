@@ -29,7 +29,7 @@ const BookCard = ({book}) => {
               <p>Used: {usingTime}</p>
               <p>Seller: {sellerName}</p>
             </div>
-            <div className="card-actions items-center ">
+            <div className="card-actions items-center">
               {/* <button className="btn btn-primary btn-sm">Book Now</button> */}
               <label
                 htmlFor="booking-modal"

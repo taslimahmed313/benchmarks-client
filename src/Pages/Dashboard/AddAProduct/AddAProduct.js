@@ -1,5 +1,6 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider';
 
@@ -9,13 +10,65 @@ const AddAProduct = () => {
       handleSubmit,
       formState: { errors },
     } = useForm();
-    const [signUpError, setSignUPError] = useState("");
-
-    const { createUser, updateUser } = useContext(AuthContext);
+    
+    const { user } = useContext(AuthContext);
     const navigate = useNavigate();
 
+    const imageHostKey = process.env.REACT_APP_imgBb_key;
+
     const handleAddToProduct = (data) =>{
-        console.log(data)
+        // console.log(data)
+
+        const image = data.img[0];
+        const formData = new FormData();
+        formData.append('image', image);
+        const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.json())
+        .then(imgData => {
+            if(imgData.success){
+                console.log(imgData.data.url);
+                const addProduct = {
+                  name: data.name,
+                  img: imgData.data.url,
+                  location: data.location,
+                  resalePrice: data.resalePrice,
+                  originalPrice: data.originalPrice,
+                  usingTime: data.usingTime,
+                  sellerName: user?.displayName,
+                  postedTime: new Date(),
+                  category_name: data.category_name,
+                  productCondition: data.productCondition,
+                  description: data.description,
+                  purchaseTime: data.purchase,
+                  phone: data.phone,
+                };
+                fetch("http://localhost:5000/books", {
+                  method: "POST",
+                  headers: {
+                    "content-type": "application/json",
+                    authorization: `bearer ${localStorage.getItem(
+                      "accessToken"
+                    )}`,
+                  },
+                  body: JSON.stringify(addProduct),
+                })
+                  .then((res) => res.json())
+                  .then((result) => {
+                    console.log(result);
+                    toast.success(`${data.name} is added successfully`);
+                    navigate("/dashboard/myProducts");
+                  });
+
+            }})
+
+            
+        
+
+        
     }
 
     
@@ -202,7 +255,6 @@ const AddAProduct = () => {
               value="Add Product"
               type="submit"
             />
-            {signUpError && <p className="text-red-600">{signUpError}</p>}
           </form>
           <p className="text-black font-semibold">
             Already have an account?{" "}

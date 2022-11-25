@@ -8,7 +8,6 @@ const AddAProduct = () => {
     const {
       register,
       handleSubmit,
-      formState: { errors },
     } = useForm();
     
     const { user } = useContext(AuthContext);
@@ -45,6 +44,7 @@ const AddAProduct = () => {
                   description: data.description,
                   purchaseTime: data.purchase,
                   phone: data.phone,
+                  email: user?.email,
                 };
                 fetch("http://localhost:5000/books", {
                   method: "POST",
@@ -60,7 +60,7 @@ const AddAProduct = () => {
                   .then((result) => {
                     console.log(result);
                     toast.success(`${data.name} is added successfully`);
-                    navigate("/dashboard/myProducts");
+                    navigate("/dashboard/seller/myProducts");
                   });
 
             }})

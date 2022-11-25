@@ -45,6 +45,7 @@ const AddAProduct = () => {
                   purchaseTime: data.purchase,
                   phone: data.phone,
                   email: user?.email,
+                  status: "available",
                 };
                 fetch("http://localhost:5000/books", {
                   method: "POST",

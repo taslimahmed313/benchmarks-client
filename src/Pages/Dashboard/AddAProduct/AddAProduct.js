@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider';
 
 const AddAProduct = () => {
@@ -65,16 +65,10 @@ const AddAProduct = () => {
                   });
 
             }})
-
-            
-        
-
-        
     }
-
     
     return (
-      <div className="h-[1000px] w-full flex  mb-16">
+      <div className="h-[950px] w-full flex  mb-10 mt-5">
         <div className="w-96 p-7 rounded-lg shadow-2xl bg-gradient-to-r from-sky-300 to-indigo-300">
           <h2 className="text-2xl text-center font-serif text-black font-semibold">
             Add A Product
@@ -257,12 +251,6 @@ const AddAProduct = () => {
               type="submit"
             />
           </form>
-          <p className="text-black font-semibold">
-            Already have an account?{" "}
-            <Link className=" text-white underline font-semibold" to="/login">
-              Please Login
-            </Link>
-          </p>
         </div>
       </div>
     );

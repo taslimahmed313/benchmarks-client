@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const AdvertiseCard = ({item}) => {
     return (
       <div>
-        <div className=" w-full p-4  bg-gradient-to-r rounded-lg from-sky-300 to-indigo-300 shadow-xl">
+        <div className=" w-full p-4  bg-gradient-to-r rounded-lg from-sky-200 to-indigo-200 shadow-xl">
           <div className="w-full">
             <img
               className=" h-[130px] w-full object-cover rounded-lg"
@@ -30,7 +30,7 @@ const AdvertiseCard = ({item}) => {
                 // htmlFor="confirmed-modal"
                 className=" font-serif p-1 font-semibold px-6 text-white rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500 "
               >
-                Book Now
+                Go Booking
               </Link>
             </div>
           </div>

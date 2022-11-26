@@ -74,7 +74,7 @@ const handleProductAdvertise = (book) =>{
           {products.map((product) => (
             <div
               key={product._id}
-              className=" w-full p-4 lg:ml-5  bg-gradient-to-r rounded-lg from-sky-300 to-indigo-300 shadow-xl"
+              className=" w-full p-4 lg:ml-5  bg-gradient-to-r rounded-lg from-sky-200 to-indigo-200 shadow-xl"
             >
               <div className="">
                 <div className="">
@@ -96,7 +96,7 @@ const handleProductAdvertise = (book) =>{
                     <span className="text-[#525151] font-serif line-through text-[18px] ml-2">
                       ${product.originalPrice}
                     </span>{" "}
-                    <span className=" font-serif ml-4 text-black px-2 py-1 rounded-lg bg-[#e6e2e2] ">
+                    <span className=" font-serif ml-4 text-black px-2 py-1 rounded-lg bg-[#ffffff] ">
                       {product.status}
                     </span>
                     <div className="flex justify-around gap-6 mt-3">

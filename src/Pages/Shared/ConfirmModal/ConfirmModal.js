@@ -12,7 +12,7 @@ const ConfirmModal = ({
     <div>
       <input type="checkbox" id="confirmed-modal" className="modal-toggle " />
       <div className="modal ">
-        <div className="modal-box  bg-gradient-to-r rounded-lg from-sky-300 to-indigo-300">
+        <div className="modal-box  bg-gradient-to-r rounded-lg from-sky-200 to-indigo-200">
           <h3 className="font-bold text-lg">{title}</h3>
           <p className="py-4">{message}</p>
           <div className="modal-action">

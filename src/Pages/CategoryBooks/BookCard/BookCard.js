@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaCheckCircle } from 'react-icons/fa';
+import { FaBan, FaCheckCircle } from 'react-icons/fa';
 
 const BookCard = ({ book, setBookingData }) => {
   const {
@@ -14,9 +14,19 @@ const BookCard = ({ book, setBookingData }) => {
     verify,
   } = book;
 
+  const handleReportToAdmin = (book) =>{
+    fetch(`http://localhost:5000/reports/${book._id}`, {
+      method: "PUT"
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+    })
+  }
+
   return (
     <div>
-      <div className="card card-compact w-full bg-gradient-to-r from-sky-100 to-indigo-200 pt-5 shadow-2xl">
+      <div className="card card-compact w-full bg-gradient-to-r from-sky-200 to-indigo-200 pt-5 shadow-2xl">
         <figure>
           <img src={img} alt="Shoes" className="rounded-xl w-4/6 h-[220px]" />
         </figure>
@@ -34,8 +44,8 @@ const BookCard = ({ book, setBookingData }) => {
               <div>
                 {verify && (
                   <span className="flex items-center">
-                    <FaCheckCircle className=" text-[#54ACC8]"></FaCheckCircle>
-                    <div className="ml-1 text-xs text-[#54ACC8] font-semibold">
+                    <FaCheckCircle className=" text-[#2fa6ca]"></FaCheckCircle>
+                    <div className="ml-1 text-xs text-[#3ba6c7] font-semibold">
                       {" "}
                       Verified Seller
                     </div>
@@ -43,8 +53,11 @@ const BookCard = ({ book, setBookingData }) => {
                 )}
               </div>
             </div>
+            <p className="text-accent font-serif">
+              Posted Date: {postedTime.slice(0, 10)}
+            </p>
           </div>
-          <div className="card-actions items-center">
+          <div className="card-actions items-center justify-between">
             <label
               htmlFor="booking-modal"
               onClick={() => setBookingData(book)}
@@ -52,9 +65,13 @@ const BookCard = ({ book, setBookingData }) => {
             >
               Book Now
             </label>
-            <p className="text-end text-accent font-serif">
-              {postedTime.slice(0, 10)}
-            </p>
+            <button
+              onClick={() => handleReportToAdmin(book)}
+              className="flex items-center"
+            >
+              <FaBan className="text-red-500"></FaBan>
+              <span className="font-semibold text-xs ">Report to Admin</span>
+            </button>
           </div>
         </div>
       </div>

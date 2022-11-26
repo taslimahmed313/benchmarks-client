@@ -47,7 +47,9 @@ const AllSellers = () => {
 
     return (
       <div>
-        <h1 className='text-3xl font-serif font-semibold text-center my-4'>All Sellers Data Here</h1>
+        <h1 className="text-3xl font-serif font-semibold text-center my-4">
+          All Sellers Data Here
+        </h1>
         <div className="overflow-x-auto">
           <table className="table w-full">
             <thead>
@@ -66,10 +68,24 @@ const AllSellers = () => {
                   <td>{seller.name}</td>
                   <td>{seller.email}</td>
                   <td>
-                    <button onClick={()=>{handleVerifySeller(seller.email)}} className="btn btn-xs btn-danger">Verify</button>
+                    <button
+                      onClick={() => {
+                        handleVerifySeller(seller.email);
+                      }}
+                      className=" text-white font-serif capitalize border-0 btn-sm bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500"
+                    >
+                      Verify
+                    </button>
                   </td>
                   <td>
-                    <button onClick={()=>{handleDeleteSeller(seller)}} className="btn btn-xs btn-danger">Delete</button>
+                    <button
+                      onClick={() => {
+                        handleDeleteSeller(seller);
+                      }}
+                      className=" text-white font-serif capitalize border-0 btn-sm bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500"
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               ))}

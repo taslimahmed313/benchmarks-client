@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
@@ -9,14 +9,14 @@ import ConfirmModal from '../../Shared/ConfirmModal/ConfirmModal';
 const MyProducts = () => {
     const {user} = useContext(AuthContext);
     const [deletingProduct, setDeletingProduct] = useState(null);
-    const [isDisabled, setIsDisabled] = useState(false);
+    // const [isDisabled, setIsDisabled] = useState(false);
     const navigate = useNavigate();
 
     const closeModal = () => {
       setDeletingProduct(null);
     };
 
-    const { data: products = [], refetch , isLoading} = useQuery({
+    const { data: products = [], refetch } = useQuery({
       queryKey: ["products"],
       queryFn: async () => {
         try {
@@ -46,22 +46,22 @@ const handleProductDelete = (book) => {
 };
 
 const handleProductAdvertise = (book) =>{
-  fetch("http://localhost:5000/advertises",{
-    method: "POST",
-    headers: {
-      "content-type" : "application/json"
-    },
-    body: JSON.stringify(book),
+  fetch(`http://localhost:5000/advertise/${book._id}`, {
+    method: "PUT",
   })
-  .then(res => res.json())
-  .then(data => {
-    console.log(data)
-    if(data.acknowledged){
-      swal("Confirmed Booked!", `${book.name} Booking  Successfully!`, "success");
-    //  setIsDisabled(true)
-      navigate("/");
-    }
-  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      if (data.acknowledged) {
+        swal(
+          "Confirmed Booked!",
+          `${book.name} Booking  Successfully!`,
+          "success"
+        );
+        //  setIsDisabled(true)
+        navigate("/");
+      }
+    });
   
 }
 // Button Disabled Style----------------->>>>>>>>>>>>>>>>>

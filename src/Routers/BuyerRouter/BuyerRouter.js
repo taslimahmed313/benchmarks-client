@@ -6,7 +6,7 @@ import useBuyer from '../../hooks/useBuyer';
 
 const BuyerRouter = ({children}) => {
     const { user, loading } = useContext(AuthContext);
-    const [isBuyer, isBuyerLoading] = useBuyer()
+    const [isBuyer, isBuyerLoading] = useBuyer(user?.email)
     const location = useLocation();
 
     if (loading || isBuyerLoading) {

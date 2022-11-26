@@ -7,7 +7,6 @@ const CategoryBooks = () => {
     const books = useLoaderData();
     const [bookingData, setBookingData] = useState(null);
     
-
     return (
       <div>
         <div className="grid lg:grid-cols-3 gap-8">

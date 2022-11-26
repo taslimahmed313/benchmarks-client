@@ -38,7 +38,9 @@ const BookCard = ({ book, setBookingData }) => {
             >
               Book Now
             </label>
-            <p className="text-end text-accent font-serif">{postedTime.slice(0,10)}</p>
+            <p className="text-end text-accent font-serif">
+              {postedTime.slice(0, 10)}
+            </p>
           </div>
         </div>
       </div>

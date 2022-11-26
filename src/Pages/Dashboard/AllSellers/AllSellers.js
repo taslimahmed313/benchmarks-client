@@ -31,18 +31,18 @@ const AllSellers = () => {
     })
   }
 
-  // const handleVerifySeller = email =>{
-  //   fetch(`http://localhost:5000/verifySeller/${email}`, {
-  //     method: "PUT",
-  //   })
-  //   .then(res => res.json())
-  //   .then(data => {
-  //     console.log(data)
-  //     if(data.modifiedCount > 0){
-  //       toast.success("Successfully Add As a Verified Seller")
-  //     }
-  //   })
-  // }
+  const handleVerifySeller = email =>{
+    fetch(`http://localhost:5000/verifySeller/${email}`, {
+      method: "PUT",
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      if(data.modifiedCount > 0){
+        toast.success("Successfully Add As a Verified Seller")
+      }
+    })
+  }
 
 
     return (
@@ -66,7 +66,7 @@ const AllSellers = () => {
                   <td>{seller.name}</td>
                   <td>{seller.email}</td>
                   <td>
-                    {/* <button onClick={()=>{handleVerifySeller(seller.email)}} className="btn btn-xs btn-danger">Verify</button> */}
+                    <button onClick={()=>{handleVerifySeller(seller.email)}} className="btn btn-xs btn-danger">Verify</button>
                   </td>
                   <td>
                     <button onClick={()=>{handleDeleteSeller(seller)}} className="btn btn-xs btn-danger">Delete</button>

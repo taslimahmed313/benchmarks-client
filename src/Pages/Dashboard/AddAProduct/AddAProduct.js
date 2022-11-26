@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
@@ -14,6 +15,23 @@ const AddAProduct = () => {
     const navigate = useNavigate();
 
     const imageHostKey = process.env.REACT_APP_imgBb_key;
+
+    const {data: verified = {}} = useQuery({
+      queryKey: ["verified"],
+      queryFn: async() =>{
+       try {
+        const res = await fetch(
+          `http://localhost:5000/verifySeller/${user?.email}`
+        );
+        const data = res.json();
+        return data;
+       } catch (error) {
+        console.log(error);
+       }
+      }
+    })
+
+    console.log(verified);
 
     const handleAddToProduct = (data) =>{
         // console.log(data)
@@ -46,6 +64,7 @@ const AddAProduct = () => {
                   phone: data.phone,
                   email: user?.email,
                   status: "available",
+                  verify: verified.isVerify,
                 };
                 fetch("http://localhost:5000/books", {
                   method: "POST",

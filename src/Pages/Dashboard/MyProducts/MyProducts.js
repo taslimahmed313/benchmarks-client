@@ -64,16 +64,6 @@ const handleProductAdvertise = (book) =>{
     });
   
 }
-// Button Disabled Style----------------->>>>>>>>>>>>>>>>>
-    // const styles = {
-    //   button: {
-    //     color: "",
-    //   },
-    //   buttonDisabled: {
-    //     color: "black",
-    //     backgroundColor: "black"
-    //   },
-    // };
 
     return (
       <div>

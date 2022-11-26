@@ -69,7 +69,7 @@ const BookCard = ({ book, setBookingData }) => {
               onClick={() => handleReportToAdmin(book)}
               className="flex items-center"
             >
-              <FaBan className="text-red-500"></FaBan>
+              <FaBan className="text-red-500 text-sm font-semibold mr-1"></FaBan>
               <span className="font-semibold text-xs ">Report to Admin</span>
             </button>
           </div>

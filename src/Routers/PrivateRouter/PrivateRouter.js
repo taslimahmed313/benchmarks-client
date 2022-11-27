@@ -8,7 +8,7 @@ const PrivateRoute = ({ children }) => {
   const location = useLocation();
 
   if (loading) {
-    return <DotLoader color="#36d7b7"></DotLoader>;
+    return <DotLoader className="m-auto" color="#36d7b7"></DotLoader>;
   }
 
   if (user) {

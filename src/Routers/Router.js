@@ -3,6 +3,7 @@ import DashboardLayout from "../Layout/DashboardLayout";
 import Main from "../Layout/Main";
 import Login from "../Pages/Authentication/Login/Login";
 import SignUp from "../Pages/Authentication/Signup/Signup";
+import Blog from "../Pages/Blog/Blog";
 import CategoryBooks from "../Pages/CategoryBooks/CategoryBooks/CategoryBooks";
 import AddAProduct from "../Pages/Dashboard/AddAProduct/AddAProduct";
 import AllBuyers from "../Pages/Dashboard/AllBuyers/AllBuyers";
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp></SignUp>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
       },
     ],
   },

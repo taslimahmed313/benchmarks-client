@@ -9,12 +9,16 @@ import ConfirmModal from '../../Shared/ConfirmModal/ConfirmModal';
 const MyProducts = () => {
     const {user} = useContext(AuthContext);
     const [deletingProduct, setDeletingProduct] = useState(null);
-    // const [isDisabled, setIsDisabled] = useState(false);
+    const [advertiseProduct, setAdvertiseProduct] = useState(null);
     const navigate = useNavigate();
 
     const closeModal = () => {
       setDeletingProduct(null);
     };
+
+    const closeAdvertiseModal = () =>{
+      setAdvertiseProduct(null);
+    }
 
     const { data: products = [], refetch } = useQuery({
       queryKey: ["products"],
@@ -52,14 +56,25 @@ const handleProductAdvertise = (book) =>{
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
-      if (data.acknowledged) {
+      if (data.modifiedCount > 0) {
         swal(
           "Select for Advertise!",
           `${book.name} Advertise  Successfully!`,
           "success"
         );
-        //  setIsDisabled(true)
         navigate("/");
+      } else {
+        toast((t) => (
+          <span>
+            Already Selected for <b className='text-[tomato]'>Advertise</b>
+            <button
+              className=" ml-3 font-serif font-semibold p-1 px-2 text-white rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500 "
+              onClick={() => toast.dismiss(t.id)}
+            >
+              Close
+            </button>
+          </span>
+        ));
       }
     });
   
@@ -100,15 +115,14 @@ const handleProductAdvertise = (book) =>{
                       {product.status}
                     </span>
                     <div className="flex justify-around gap-6 mt-3">
-                      <button
-                        onClick={() => handleProductAdvertise(product)}
-                        // disabled={isDisabled}
+                      <label
+                        htmlFor="confirmed-modal"
+                        onClick={() => setAdvertiseProduct(product)}
                         className=" font-serif font-semibold p-1 px-6 text-white rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500 "
-                        // style = {isDisabled ? styles.button : styles.buttonDisabled}
                       >
-                       Advertise
-                      </button>
-                      
+                        Advertise
+                      </label>
+
                       <label
                         onClick={() => setDeletingProduct(product)}
                         htmlFor="confirmed-modal"
@@ -123,16 +137,30 @@ const handleProductAdvertise = (book) =>{
             </div>
           ))}
         </div>
-        {deletingProduct && (
-          <ConfirmModal
-            title={"Are You Sure Deleting This Product?"}
-            message={`If you delete "${deletingProduct.name}" It cannot be Undo.`}
-            successAction={handleProductDelete}
-            successButtonName="Delete"
-            modalData={deletingProduct}
-            closeModal={closeModal}
-          ></ConfirmModal>
-        )}
+        <div>
+          {deletingProduct && (
+            <ConfirmModal
+              title={"Are You Sure Deleting This Product?"}
+              message={`If you delete "${deletingProduct.name}" It cannot be Undo.`}
+              successAction={handleProductDelete}
+              successButtonName="Delete"
+              modalData={deletingProduct}
+              closeModal={closeModal}
+            ></ConfirmModal>
+          )}
+        </div>
+        <div>
+          {advertiseProduct && (
+            <ConfirmModal
+              title={"Are You Sure Advertise This Product?"}
+              message={`Just Go Advertising for "${advertiseProduct.name}".`}
+              successAction={handleProductAdvertise}
+              successButtonName="Advertise"
+              modalData={advertiseProduct}
+              closeModal={closeAdvertiseModal}
+            ></ConfirmModal>
+          )}
+        </div>
       </div>
     );
 };

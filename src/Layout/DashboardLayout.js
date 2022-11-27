@@ -29,7 +29,7 @@ const DashboardLayout = () => {
               htmlFor="dashboard-drawer"
               className="drawer-overlay"
             ></label>
-            <ul className="menu p-4 w-80 ">
+            <ul className="menu p-4 w-80 font-serif text-xs font-semibold uppercase ">
               {isBuyer && (
                 <>
                   <li>
@@ -40,25 +40,48 @@ const DashboardLayout = () => {
               {isSeller && (
                 <>
                   <li>
-                    <Link to="/dashboard/seller/addAProduct">
+                    <Link
+                      className="hover:bg-gradient-to-r from-sky-300 to-indigo-300"
+                      to="/dashboard/seller/addAProduct"
+                    >
                       Add A Product
                     </Link>
                   </li>
                   <li>
-                    <Link to="/dashboard/seller/myProducts">My Products</Link>
+                    <Link
+                      className=" hover:bg-gradient-to-r from-sky-300 to-indigo-300"
+                      to="/dashboard/seller/myProducts"
+                    >
+                      My Products
+                    </Link>
                   </li>
                 </>
               )}
               {isAdmin && (
                 <>
                   <li>
-                    <Link to="/dashboard/admin/allBuyers">All Buyers</Link>
+                    <Link
+                      className=" hover:bg-gradient-to-r from-sky-300 to-indigo-300"
+                      to="/dashboard/admin/allBuyers"
+                    >
+                      All Buyers
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/dashboard/admin/allSellers">All Sellers</Link>
+                    <Link
+                      className=" hover:bg-gradient-to-r from-sky-300 to-indigo-300"
+                      to="/dashboard/admin/allSellers"
+                    >
+                      All Sellers
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/dashboard/admin/reportedItems">Reported Items</Link>
+                    <Link
+                      className=" hover:bg-gradient-to-r from-sky-300 to-indigo-300"
+                      to="/dashboard/admin/reportedItems"
+                    >
+                      Reported Items
+                    </Link>
                   </li>
                 </>
               )}

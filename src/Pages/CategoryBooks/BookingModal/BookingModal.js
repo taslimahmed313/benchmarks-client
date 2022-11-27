@@ -66,7 +66,7 @@ const BookingModal = ({ bookingData, setBookingData }) => {
               type="text"
               defaultValue={user?.displayName}
               disabled
-              className="input w-full input-bordered"
+              className="input w-full input-sm input-bordered"
             />
             <input
               name="email"
@@ -74,14 +74,14 @@ const BookingModal = ({ bookingData, setBookingData }) => {
               defaultValue={user?.email}
               disabled
               placeholder="Email Address"
-              className="input w-full input-bordered"
+              className="input w-full input-sm input-bordered"
             />
             <input
               type="text"
               disabled
               value={name}
               name="bookName"
-              className="input w-full input-bordered "
+              className="input w-full input-sm input-bordered "
             />
             <input
               name="price"
@@ -89,25 +89,25 @@ const BookingModal = ({ bookingData, setBookingData }) => {
               defaultValue={`USD $${resalePrice}`}
               disabled
               placeholder="Email Address"
-              className="input w-full input-bordered"
+              className="input w-full input-sm input-bordered"
             />
             <input
               name="phone"
               type="text"
               placeholder="Phone Number"
-              className="input w-full input-bordered"
+              className="input w-full input-sm input-bordered"
               required
             />
             <input
               name="location"
               type="text"
               placeholder="Where would you like to meet??"
-              className="input w-full input-bordered"
+              className="input w-full input-sm input-bordered"
               required
             />
             <br />
             <input
-              className="btn w-full capitalize font-serif text-lg text-white font-semibold border-none mt-4 mb-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500"
+              className="btn w-full capitalize font-serif text-lg rounded-full text-white font-semibold border-none mb-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500"
               type="submit"
               value="Submit"
             />

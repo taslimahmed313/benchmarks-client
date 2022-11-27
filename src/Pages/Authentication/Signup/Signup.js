@@ -11,7 +11,6 @@ const SignUp = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [signUpError, setSignUPError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const { createUser, updateUser } = useContext(AuthContext);
@@ -33,14 +32,18 @@ const SignUp = () => {
       .then(() => {
         saveUserData(data.name, data.email, data.role)
         setLoading(false)
-        toast.success("Sign Up and User Data Stored Successfully");
+        toast.success("Sign Up Successfully");
         navigate(from, { replace: true });
       })
       .catch(e => console.log(e));
       console.log(user)
       
     })
-    .catch(e => console.log(e));
+    .catch(e => {
+      console.log(e)
+    toast.error(e.message);
+    setLoading(false);
+  });
   }
 
    const saveUserData = (name, email, role) => {
@@ -150,7 +153,6 @@ const SignUp = () => {
               value="Sign Up"
               type="submit"
             />
-            {signUpError && <p className="text-red-600">{signUpError}</p>}
           </form>
           <p className="text-black font-semibold">
             Already have an account?{" "}

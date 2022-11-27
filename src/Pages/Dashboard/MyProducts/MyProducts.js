@@ -54,8 +54,8 @@ const handleProductAdvertise = (book) =>{
       console.log(data);
       if (data.acknowledged) {
         swal(
-          "Confirmed Booked!",
-          `${book.name} Booking  Successfully!`,
+          "Select for Advertise!",
+          `${book.name} Advertise  Successfully!`,
           "success"
         );
         //  setIsDisabled(true)

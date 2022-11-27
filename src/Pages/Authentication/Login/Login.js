@@ -12,7 +12,6 @@ const Login = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const [loginError, setLoginError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const location = useLocation();
@@ -34,7 +33,11 @@ const Login = () => {
       setLoading(false);
       navigate(from, { replace: true})
     })
-    .catch(e => console.log(e))
+    .catch(e => {
+      console.log(e)
+      toast.error(e.message);
+      setLoading(false);
+    })
   };
 
   const handleGoogleLogin = () =>{
@@ -120,12 +123,9 @@ const Login = () => {
               value="Login"
               type="submit"
             />
-            <div>
-              {loginError && <p className="text-red-600">{loginError}</p>}
-            </div>
           </form>
           <p className=" font-medium">
-            New to Doctors Portal?{" "}
+            New to Benchmarks?{" "}
             <Link className=" text-white font-semibold underline" to="/signup">
               Create new Account
             </Link>

@@ -1,8 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import ConfirmModal from '../../Shared/ConfirmModal/ConfirmModal';
 
 const ReportedItems = () => {
+  const [deleteReportedItem, setDeleteReportedItem] = useState(null);
+
+  const closeReportedModal = () =>{
+    setDeleteReportedItem(null);
+  }
 
     const {data: reports = [], refetch} = useQuery({
         queryKey: ["reports"],
@@ -21,7 +27,7 @@ const ReportedItems = () => {
       .then(data => {
         console.log(data)
         if(data.deletedCount > 0){
-          toast.success(`Reported Book ${reported.name} Remove From The BookList`);
+          toast.success(`Reported Book Remove From The BookList`);
           refetch();
         }
       })
@@ -62,17 +68,30 @@ const ReportedItems = () => {
                   </td>
 
                   <td>
-                    <button
-                      onClick={() => handleReportedProductDelete(report)}
+                    <label
+                      htmlFor="confirmed-modal"
+                      onClick={() => setDeleteReportedItem(report)}
                       className="btn text-white font-serif capitalize border-0 btn-sm bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500"
                     >
                       Delete
-                    </button>
+                    </label>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
+        </div>
+        <div>
+          {deleteReportedItem && (
+            <ConfirmModal
+              title={"Are You Sure Deleting Reported Product?"}
+              message={`If you delete It cannot be Undo.`}
+              successAction={handleReportedProductDelete}
+              successButtonName="Delete"
+              modalData={deleteReportedItem}
+              closeModal={closeReportedModal}
+            ></ConfirmModal>
+          )}
         </div>
       </div>
     );

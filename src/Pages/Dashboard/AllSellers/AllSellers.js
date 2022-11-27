@@ -1,8 +1,19 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import ConfirmModal from '../../Shared/ConfirmModal/ConfirmModal';
 
 const AllSellers = () => {
+  const [deleteSeller, setDeleteSeller] = useState(null);
+  const [verifySeller, setVerifySeller] = useState(null);
+
+  const closeModal = () =>{
+    setDeleteSeller(null);
+  }
+
+  const closeVerifyModal = () =>{
+    setVerifySeller(null);
+  }
 
   const {data: sellers = [], refetch} = useQuery({
     queryKey: ["sellers"],
@@ -31,8 +42,8 @@ const AllSellers = () => {
     })
   }
 
-  const handleVerifySeller = email =>{
-    fetch(`http://localhost:5000/verifySeller/${email}`, {
+  const handleVerifySeller = seller =>{
+    fetch(`http://localhost:5000/verifySeller/${seller.email}`, {
       method: "PUT",
     })
     .then(res => res.json())
@@ -69,30 +80,56 @@ const AllSellers = () => {
                   <td>{seller.email}</td>
                   <td>
                     {seller?.verification !== "verified" && (
-                      <button
+                      <label
+                        htmlFor="confirmed-modal"
                         onClick={() => {
-                          handleVerifySeller(seller.email);
+                          setVerifySeller(seller);
                         }}
-                        className=" text-white font-serif capitalize border-0 btn-sm bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500"
+                        className="font-serif p-1 font-semibold px-6 text-white rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500 "
                       >
                         Verify
-                      </button>
+                      </label>
                     )}
                   </td>
                   <td>
-                    <button
+                    <label
+                      htmlFor="confirmed-modal"
                       onClick={() => {
-                        handleDeleteSeller(seller);
+                        setDeleteSeller(seller);
                       }}
-                      className=" text-white font-serif capitalize border-0 btn-sm bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500"
+                      className="font-serif p-1 font-semibold px-6 text-white rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500 "
                     >
                       Delete
-                    </button>
+                    </label>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
+        </div>
+        <div>
+          {deleteSeller && (
+            <ConfirmModal
+              title={"Are You Sure Deleting This Seller?"}
+              message={`If you delete Seller"${deleteSeller.name}" It cannot be Undo.`}
+              successAction={handleDeleteSeller}
+              successButtonName="Delete"
+              modalData={deleteSeller}
+              closeModal={closeModal}
+            ></ConfirmModal>
+          )}
+        </div>
+        <div>
+          {verifySeller && (
+            <ConfirmModal
+              title={"Are You Sure Verify This Seller?"}
+              message={`If you Once Verify Seller "${verifySeller.name}" It cannot be Undo.`}
+              successAction={handleVerifySeller}
+              successButtonName="Verify"
+              modalData={verifySeller}
+              closeModal={closeVerifyModal}
+            ></ConfirmModal>
+          )}
         </div>
       </div>
     );

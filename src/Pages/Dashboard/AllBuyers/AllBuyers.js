@@ -1,8 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
-import React from 'react';
+import React, { useState } from 'react';
 import toast from "react-hot-toast";
+import ConfirmModal from "../../Shared/ConfirmModal/ConfirmModal";
 
 const AllBuyers = () => {
+  const [deleteBuyer, setDeleteBuyer] = useState(null);
+
+  const closeModal = () =>{
+    setDeleteBuyer(null);
+  }
+
+
     const { data: buyers = [], refetch } = useQuery({
       queryKey: ["buyers"],
       queryFn: async () => {
@@ -52,20 +60,33 @@ const AllBuyers = () => {
                     <td>{buyer.name}</td>
                     <td>{buyer.email}</td>
                     <td>
-                      <button
+                      <label
+                        htmlFor="confirmed-modal"
                         onClick={() => {
-                          handleDeleteBuyer(buyer);
+                          setDeleteBuyer(buyer);
                         }}
-                        className="btn btn-xs btn-danger"
+                        className="font-serif p-1 font-semibold px-6 text-white rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500 "
                       >
                         Delete
-                      </button>
+                      </label>
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
+        </div>
+        <div>
+          {deleteBuyer && (
+            <ConfirmModal
+              title={"Are You Sure Delete This Buyer?"}
+              message={`If you delete "${deleteBuyer.name}" It cannot be Undo.`}
+              successAction={handleDeleteBuyer}
+              successButtonName="Delete"
+              modalData={deleteBuyer}
+              closeModal={closeModal}
+            ></ConfirmModal>
+          )}
         </div>
       </div>
     );

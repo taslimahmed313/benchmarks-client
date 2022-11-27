@@ -29,7 +29,7 @@ const ProductCategories = () => {
 
     return (
       <div>
-        <h1 className="text-3xl font-semibold mt-10">Book's Categories</h1>
+        <h1 className="text-3xl font-semibold font-serif mt-10"> Book's Category</h1>
           <div className="grid lg:grid-cols-3 lg:gap-8 mt-2 mb-7">
             {categories.map((category) => (
               <Link

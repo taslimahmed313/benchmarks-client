@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider";
+import logo from "../../logo/research.png";
 
 const Navbar = () => {
   
@@ -37,7 +38,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-gradient-to-r from-sky-100 to-indigo-200 mb-5 font-serif font-semibold shadow-2xl">
+    <div className="navbar bg-[#EFEFEF] font-serif font-semibold shadow-2xl">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -64,7 +65,20 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to="/" className="btn btn-ghost normal-case text-xl">
-          Resale Wizards
+          <br />
+        </Link>
+        <Link to="/" className=" flex items-center">
+          <div>
+            <img className=" w-10 mr-2" src={logo} alt="" />
+          </div>
+          <div>
+            <p className=" font-serif uppercase text-md  text-[#315c99] tracking-widest font-bold">
+              Benchmarks
+            </p>
+            <p className=" text-[12px] font-lg tracking-widest text-[#555555]">
+              Read More.Spend Less
+            </p>
+          </div>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -77,7 +91,7 @@ const Navbar = () => {
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
+          className="h-5 w-5 ml-20"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

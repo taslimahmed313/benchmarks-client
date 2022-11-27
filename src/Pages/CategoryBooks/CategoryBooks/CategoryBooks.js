@@ -9,7 +9,7 @@ const CategoryBooks = () => {
     
     return (
       <div>
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-8 my-10">
           {books.map((book) => (
             <>
               <BookCard

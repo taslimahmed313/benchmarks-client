@@ -43,7 +43,7 @@ const BookCard = ({ book, setBookingData }) => {
             </span>
             <p>Used: {usingTime}</p>
             <div className="flex items-center">
-              <span className="mr-2">{sellerName}</span>{" "}
+              <span className="mr-2">Seller: {sellerName}</span>{" "}
               <div>
                 {verify && (
                   <span className="flex items-center">

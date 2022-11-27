@@ -1,4 +1,5 @@
 import React from 'react';
+import toast from 'react-hot-toast';
 import { FaBan, FaCheckCircle } from 'react-icons/fa';
 
 const BookCard = ({ book, setBookingData }) => {
@@ -20,7 +21,9 @@ const BookCard = ({ book, setBookingData }) => {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
+      if(data.modifiedCount > 0){
+        toast.success(`"${book.name}" Reported Successfully!!`)
+      }
     })
   }
 

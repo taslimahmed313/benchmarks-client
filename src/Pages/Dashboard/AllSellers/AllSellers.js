@@ -68,14 +68,16 @@ const AllSellers = () => {
                   <td>{seller.name}</td>
                   <td>{seller.email}</td>
                   <td>
-                    <button
-                      onClick={() => {
-                        handleVerifySeller(seller.email);
-                      }}
-                      className=" text-white font-serif capitalize border-0 btn-sm bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500"
-                    >
-                      Verify
-                    </button>
+                    {seller?.verification !== "verified" && (
+                      <button
+                        onClick={() => {
+                          handleVerifySeller(seller.email);
+                        }}
+                        className=" text-white font-serif capitalize border-0 btn-sm bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500"
+                      >
+                        Verify
+                      </button>
+                    )}
                   </td>
                   <td>
                     <button

@@ -71,6 +71,7 @@ const Blog = () => {
           </p>
         </div>
         <div className=" border border-indigo-500 lg:h-[700px] shadow-2xl rounded-2xl p-5">
+          <p className="font-bold">React vs. Angular vs. Vue?</p>
           <p>
             <strong className="font-bold underline">Angular</strong> <br />
             Angular, developed by Google, was first released in 2010, making it
@@ -85,7 +86,7 @@ const Blog = () => {
             Facebook uses React extensively in their products (Facebook,
             Instagram, and WhatsApp). Similar to Vue, the React developers also
             announce their newest version on the blog section of the React
-            website.
+            website. <br />
             <strong className=" font-bold underline">Vue</strong> <br />
             Vue, also known as Vue.js, is the youngest member of the group. It
             was developed by ex-Google employee Evan You in 2014. Over the last

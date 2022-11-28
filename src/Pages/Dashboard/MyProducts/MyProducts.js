@@ -82,7 +82,7 @@ const handleProductAdvertise = (book) =>{
 
     return (
       <div>
-        <h1 className="text-2xl mb-4 font-serif text-center font-semibold">
+        <h1 className="text-2xl my-4 font-serif text-center font-semibold">
           See Your All Products Here
         </h1>
         <div className=" grid lg:grid-cols-2 lg:gap-8 lg:mx-10">

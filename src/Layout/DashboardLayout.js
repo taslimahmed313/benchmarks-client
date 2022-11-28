@@ -30,11 +30,11 @@ const DashboardLayout = () => {
               htmlFor="dashboard-drawer"
               className="drawer-overlay"
             ></label>
-            <ul className="menu p-4 w-80 font-serif text-xs font-semibold uppercase ">
+            <ul className="menu p-4 w-80 font-serif text-xs  bg-[#EFEFEF] font-semibold uppercase ">
               {isBuyer && (
                 <>
                   <li>
-                    <Link>My Orders</Link>
+                    <Link to="/dashboard/buyer/myOrders">My Orders</Link>
                   </li>
                 </>
               )}

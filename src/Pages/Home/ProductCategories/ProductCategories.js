@@ -9,7 +9,7 @@ const ProductCategories = () => {
       queryKey: ["categories"],
       queryFn: async()=>{
         try {
-          const res = await fetch("http://localhost:5000/categories");
+          const res = await fetch("https://assginment-project-server-taslimahmed313.vercel.app/categories");
           const data = res.json()
           return data;
         } catch (error) {

@@ -6,7 +6,7 @@ import { AuthContext } from '../../../Contexts/AuthProvider';
 const MyOrders = () => {
     const [orders, setOrders] = useState([]);
     const {user} = useContext(AuthContext);
-    const url = `http://localhost:5000/bookings?email=${user?.email}`;
+    const url = `https://assginment-project-server-taslimahmed313.vercel.app/bookings?email=${user?.email}`;
     
    useEffect(()=>{
      axios

@@ -37,7 +37,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/category/${params.name}`),
+          fetch(`https://assginment-project-server-taslimahmed313.vercel.app/category/${params.name}`),
       },
       {
         path: "/login",
@@ -81,7 +81,7 @@ export const router = createBrowserRouter([
           </BuyerRouter>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/bookings/${params.id}`),
+          fetch(`https://assginment-project-server-taslimahmed313.vercel.app/bookings/${params.id}`),
       },
       {
         path: "/dashboard/seller/addAProduct",

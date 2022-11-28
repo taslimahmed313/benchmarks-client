@@ -28,7 +28,7 @@ const BookingModal = ({ bookingData, setBookingData }) => {
     };
     
   
-    fetch("http://localhost:5000/bookings", {
+    fetch("https://assginment-project-server-taslimahmed313.vercel.app/bookings", {
       method: "POST",
       headers: {
         "content-type": "application/json",

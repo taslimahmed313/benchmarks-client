@@ -19,7 +19,7 @@ const AllSellers = () => {
     queryKey: ["sellers"],
     queryFn: async()=>{
       try {
-          const res = await fetch("http://localhost:5000/allSellers");        
+          const res = await fetch("https://assginment-project-server-taslimahmed313.vercel.app/allSellers");        
           const data = res.json()
           return data;
       } catch (error) {
@@ -29,7 +29,7 @@ const AllSellers = () => {
   })
 
   const handleDeleteSeller=(seller)=>{
-    fetch(`http://localhost:5000/allSellers/${seller._id}`, {
+    fetch(`https://assginment-project-server-taslimahmed313.vercel.app/allSellers/${seller._id}`, {
       method: "DELETE"
     })
     .then(res => res.json())
@@ -43,7 +43,7 @@ const AllSellers = () => {
   }
 
   const handleVerifySeller = seller =>{
-    fetch(`http://localhost:5000/verifySeller/${seller.email}`, {
+    fetch(`https://assginment-project-server-taslimahmed313.vercel.app/verifySeller/${seller.email}`, {
       method: "PUT",
     })
     .then(res => res.json())

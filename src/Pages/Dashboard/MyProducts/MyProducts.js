@@ -25,7 +25,7 @@ const MyProducts = () => {
       queryFn: async () => {
         try {
           const res = await fetch(
-            `http://localhost:5000/books?email=${user?.email}`
+            `https://assginment-project-server-taslimahmed313.vercel.app/books?email=${user?.email}`
           );
           const data = res.json();
           return data;
@@ -37,7 +37,7 @@ const MyProducts = () => {
 
 
 const handleProductDelete = (book) => {
-  fetch(`http://localhost:5000/books/${book._id}`, {
+  fetch(`https://assginment-project-server-taslimahmed313.vercel.app/books/${book._id}`, {
     method: "DELETE"
   })
     .then((res) => res.json())
@@ -50,7 +50,7 @@ const handleProductDelete = (book) => {
 };
 
 const handleProductAdvertise = (book) =>{
-  fetch(`http://localhost:5000/advertise/${book._id}`, {
+  fetch(`https://assginment-project-server-taslimahmed313.vercel.app/advertise/${book._id}`, {
     method: "PUT",
   })
     .then((res) => res.json())

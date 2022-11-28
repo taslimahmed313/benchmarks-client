@@ -49,7 +49,7 @@ const Login = () => {
 
        const userData = { name: user?.displayName, email: user?.email, role:"Buyer" };
        
-       fetch(`http://localhost:5000/users`, {
+       fetch(`https://assginment-project-server-taslimahmed313.vercel.app/users`, {
          method: "POST",
          headers: {
            "content-type": "application/json",
@@ -58,7 +58,7 @@ const Login = () => {
        })
          .then((res) => res.json())
          .then((data) => {
-          setLoading(false);
+           setLoading(false);
            if (data.acknowledged) {
              toast.success("Google Login Successfully");
              navigate(from, { replace: true });

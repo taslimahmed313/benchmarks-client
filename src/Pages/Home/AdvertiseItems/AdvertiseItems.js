@@ -8,7 +8,7 @@ const AdvertiseItems = () => {
         queryFn: async() =>{
            try {
              const res = await fetch(
-               "http://localhost:5000/advertises"
+               "https://assginment-project-server-taslimahmed313.vercel.app/advertises"
              );
              const data = res.json();
              return data;

@@ -13,14 +13,14 @@ const ReportedItems = () => {
     const {data: reports = [], refetch} = useQuery({
         queryKey: ["reports"],
         queryFn: async() =>{
-            const res = await fetch("http://localhost:5000/reports");
+            const res = await fetch("https://assginment-project-server-taslimahmed313.vercel.app/reports");
             const data = res.json();
             return data;
         }
     })
 
     const handleReportedProductDelete = reported =>{
-      fetch(`http://localhost:5000/reports/${reported._id}`, {
+      fetch(`https://assginment-project-server-taslimahmed313.vercel.app/reports/${reported._id}`, {
         method: "DELETE"
       })
       .then(res => res.json())

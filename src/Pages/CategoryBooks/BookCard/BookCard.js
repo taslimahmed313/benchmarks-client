@@ -16,7 +16,7 @@ const BookCard = ({ book, setBookingData }) => {
   } = book;
 
   const handleReportToAdmin = (book) =>{
-    fetch(`http://localhost:5000/reports/${book._id}`, {
+    fetch(`https://assginment-project-server-taslimahmed313.vercel.app/reports/${book._id}`, {
       method: "PUT"
     })
     .then(res => res.json())

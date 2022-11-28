@@ -15,7 +15,7 @@ const AllBuyers = () => {
       queryKey: ["buyers"],
       queryFn: async () => {
         try {
-          const res = await fetch("http://localhost:5000/allBuyers");
+          const res = await fetch("https://assginment-project-server-taslimahmed313.vercel.app/allBuyers");
           const data = res.json();
           return data;
         } catch (error) {
@@ -25,7 +25,7 @@ const AllBuyers = () => {
     });
 
     const handleDeleteBuyer = (buyer) => {
-      fetch(`http://localhost:5000/allBuyers/${buyer._id}`, {
+      fetch(`https://assginment-project-server-taslimahmed313.vercel.app/allBuyers/${buyer._id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

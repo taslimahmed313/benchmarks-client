@@ -15,6 +15,7 @@ import Payment from "../Pages/Dashboard/Payment/Payment";
 import ReportedItems from "../Pages/Dashboard/ReportedItems/ReportedItems";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home/Home";
+import TryOut from "../Pages/TryOut/TryOut";
 import AdminRouter from "./AdminRouter/AdminRouter";
 import BuyerRouter from "./BuyerRouter/BuyerRouter";
 import PrivateRoute from "./PrivateRouter/PrivateRouter";
@@ -51,6 +52,10 @@ export const router = createBrowserRouter([
         path: "/blog",
         element: <Blog></Blog>,
       },
+      {
+        path: "/tryout",
+        element: <TryOut></TryOut>
+      }
     ],
   },
   {

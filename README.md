@@ -2,6 +2,10 @@
 
 # Live-Site-Link: https://resale-wizards.web.app/
 
+# Admin-Email: provide@test.com
+
+# Admin-Password: 123456A!
+
 # Added Features:
 
 - Firebase Authentication

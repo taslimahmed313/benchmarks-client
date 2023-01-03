@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@500&display=swap");
+
+.nav-route {
+  color: #1ccc8b;
+  font-family: "Sansita Swashed", cursive;
+  font-weight: 500;
+}
+.nav-route:hover {
+  color: #0dde91;
+}
+.private {
+  color: #1ccc8b;
+  font-family: "Sansita Swashed", cursive;
+  font-weight: 500;
+}
+.private:hover {
+  color: white;
+  background: #06ed99;
+}
